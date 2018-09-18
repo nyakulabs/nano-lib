@@ -8,7 +8,7 @@ class nanolib {
             let paragraph = message.cleanContent;
             let match = paragraph.match(/(https?:\/\/.*\.(?:png|jpg|jpeg))/i);
             if (match) {
-                let matched = paragraph.match(/(https?:\/\/.*\.(?:png|jpg|jpeg))/i)[0];
+                let matched = match[0];
                 let req = await snekfetch.get(matched);
                 if (!req.body) resolve();
                 resolve({
